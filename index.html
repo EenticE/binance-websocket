@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>币安实时服务器时间监控</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><i class="icon-binance"></i> 币安实时服务器时间监控</h1>
+        <div class="controls">
+            <button id="toggleTheme" class="btn-theme">
+                <i class="icon-theme"></i> 切换主题
+            </button>
+            <button id="reconnectBtn" class="btn-refresh">
+                <i class="icon-refresh"></i> 重连
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="time-card">
+            <div class="time-header">
+                <h2>服务器时间</h2>
+                <span id="connectionStatus" class="status-disconnected">
+                    <i class="icon-status"></i> 连接中...
+                </span>
+            </div>
+            <div class="time-display">
+                <div class="time-main" id="currentServerTime">--:--:--</div>
+                <div class="time-meta">
+                    <span id="timezone">UTC+8</span>
+                    <span id="lastUpdate">等待数据...</span>
+                </div>
+            </div>
+            <div class="time-stats">
+                <div class="stat-item">
+                    <span class="stat-label">连接状态</span>
+                    <span class="stat-value" id="wsStatus">未连接</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">更新次数</span>
+                    <span class="stat-value" id="updateCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">运行时间</span>
+                    <span class="stat-value" id="uptime">0s</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-card">
+            <h3>最近更新历史</h3>
+            <ul id="timeHistory"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>数据来源: Binance WebSocket API | 纯前端实现，适配 GitHub Pages</p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
